@@ -51,15 +51,15 @@ Note: this dapp is designed to work with the intended NFT smart contract, that o
   "CONTRACT_ADDRESS": "0x827acb09a2dc20e39c9aad7f7190d9bc53534192",
   "SCAN_LINK": "https://polygonscan.com/token/0x827acb09a2dc20e39c9aad7f7190d9bc53534192",
   "NETWORK": {
-    "NAME": "Ethereum",
-    "SYMBOL": "ETH",
-    "ID": 1
+    "NAME": "Polygon",
+    "SYMBOL": "Matic",
+    "ID": 137
   },
-  "NFT_NAME": "Kevin Ape Yacht Club",
-  "SYMBOL": "KAYC",
-  "MAX_SUPPLY": 2222,
-  "WEI_COST": 6900000000000000,
-  "DISPLAY_COST": 0.0069,
+  "NFT_NAME": "The Stripes NFT",
+  "SYMBOL": "TSNFT",
+  "MAX_SUPPLY": 4444,
+  "WEI_COST": 20000000000000000,
+  "DISPLAY_COST": 0.02,
   "GAS_LIMIT": 285000,
   "MARKETPLACE": "Opeansea",
   "MARKETPLACE_LINK": "https://opensea.io/collection/the-stripes-nft",
