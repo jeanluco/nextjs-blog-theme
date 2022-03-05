@@ -1,85 +1,121 @@
-![Netlify Next.js Blog Template designed by Bejamas](github-banner.svg)
+# Welcome to The Stripes NFT 💎
 
-[![Deploy to Netlify Button](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/netlify-templates/nextjs-blog-theme)
+![](https://github.com/The-Stripes-NFT/nft-minting-app/blob/main/logo-blob.png)
 
-A customizable blog starter using:
+All the code in these repos was created and explained by HashLips on the main YouTube channel.
 
-- [Next.js](https://github.com/vercel/next.js) v12
-- [Tailwind](https://tailwindcss.com/) v3.0
-- Built-in [MDX](https://mdxjs.com/) v1 support
-- Includes modern design with dark & light themes
+To find out more please visit:
 
-> 🎉 We’re really excited about the Bejamas + Netlify collaboration and we were going to celebrate it with some swag, but we realized we could put that money into supporting OSS and our ecosystem even more! After all, who needs another t-shirt or sticker?!
->
-> [Click this link](https://oss-form.netlify.app/) to vote for your favorite Open Source project!
+[📺 YouTube](https://www.youtube.com/AliSolanki)
 
-![Preview of blog theme. Author named Jay Doe and blog's name is "Next.js Blog Theme" with one blog post](nextjs-blog-theme-preview.png)
+[💬 Telegram](https://t.me/studentsamaj)
 
-[Take a gander at the demo.](https://bejamas-nextjs-blog.netlify.app)
+[🐦 Twitter](https://twitter.com/thestripesnft)
 
-[Click here to watch the template walkthrough!](https://www.youtube.com/watch?v=U2eTCO_xiHc)
+[ℹ️ Website](https://thestripesnft.com/)
 
-## Getting Started
+# The Stripes NFT minting dapp 🔥
 
----
+This repo provides a nice and easy way for linking an existing NFT smart contract to this minting dapp. There are two ways of using this repo, you can go the simple route or the more complex one.
 
-You can get started with this project in two ways: locally or using the [setup wizard](https://nextjs-wizard.netlify.app/).
+The simple route is so simple, all you need to do is download the build folder on the release page and change the configuration to fit your needs. (Follow the video for a walk through).
 
-### Setting Up Locally
+The more complex route allows you to add additional functionality if you are comfortable with coding in react.js. (Follow the below instructions for a walk through).
 
-If you're doing it locally, start with clicking the [use this template](https://github.com/netlify-templates/nextjs-blog-theme/generate) button on GitHub. This will create a new repository with this template's files on your GitHub account. Once that is done, clone your new repository and navigate to it in your terminal.
+## Installation 🛠️
 
-From there, you can install the project's dependencies by running:
+If you are cloning the project then run this first, otherwise you can download the source code on the release page and skip this step.
 
-```shell
-yarn install
+```sh
+git clone https://github.com/The-Stripes-NFT/nft-minting-app.git
 ```
 
-Finally, you can run your project locally with:
+Make sure you have node.js installed so you can use npm, then run:
 
-```shell
-yarn run dev
+```sh
+npm install
 ```
 
-Open your browser and visit <http://localhost:3000>, your project should be running!
+## Usage ℹ️
 
-### Using the Setup Wizard
+In order to make use of this dapp, all you need to do is change the configurations to point to your smart contract as well as update the images and theme file.
 
-![Preview of Setup Wizard showing the initial page of a setup form](nextjs-setup-wizard.png)
+For the most part all the changes will be in the `public` folder.
 
-Through the [setup wizard](https://nextjs-wizard.netlify.app/), you can create your blog in a few clicks and deploy to Netlify.
+To link up your existing smart contract, go to the `public/config/config.json` file and update the following fields to fit your smart contract, network and marketplace details. The cost field should be in wei.
 
-## Configuring the blog
+Note: this dapp is designed to work with the intended NFT smart contract, that only takes one parameter in the mint function "mintAmount". But you can change that in the App.js file if you need to use a smart contract that takes 2 params.
 
-The config is based on environment variables to make it easy to integrate with any Jamstack platform, like Netlify.
+```json
+{
+  "CONTRACT_ADDRESS": "0x827acb09a2dc20e39c9aad7f7190d9bc53534192",
+  "SCAN_LINK": "https://polygonscan.com/token/0x827acb09a2dc20e39c9aad7f7190d9bc53534192",
+  "NETWORK": {
+    "NAME": "Ethereum",
+    "SYMBOL": "ETH",
+    "ID": 1
+  },
+  "NFT_NAME": "Kevin Ape Yacht Club",
+  "SYMBOL": "KAYC",
+  "MAX_SUPPLY": 2222,
+  "WEI_COST": 6900000000000000,
+  "DISPLAY_COST": 0.0069,
+  "GAS_LIMIT": 285000,
+  "MARKETPLACE": "Opeansea",
+  "MARKETPLACE_LINK": "https://opensea.io/collection/the-stripes-nft",
+  "SHOW_BACKGROUND": true
+}
+```
 
-Here are the variables you can edit:
-| Variable | Description | Options
-| --- | --- | --- |
-| `BLOG_NAME` | the name of your blog, displayed below the avatar ||
-| `BLOG_TITLE` | the main header (`h1`) on the home page ||
-| `BLOG_FOOTER_TEXT`| the text in the footer ||
-| `BLOG_THEME` | the theme to pass to Tailwind | default |
-| `BLOG_FONT_HEADINGS` | the font-family for all HTML headings, from `h1` to `h6`| sans-serif (default), serif, monospace|
-| `BLOG_FONT_PARAGRAPHS` | the font-family for all other HTML elements | sans-serif (default), serif, monospace|
+Make sure you copy the contract ABI from remix and paste it in the `public/config/abi.json` file.
+(follow the youtube video if you struggle with this part).
 
-All of the env variables can be configured through the [Wizard](https://nextjs-wizard.netlify.app/) or through setting the project's environment variables. You can do this in your Netlify dashaboard (Site settings/Build & deploy/Environment/Environment variables).
+Now you will need to create and change 2 images and a gif in the `public/config/images` folder, `bg.png`, `example.gif` and `logo.png`.
 
-https://user-images.githubusercontent.com/3611928/153997545-6dcdeef0-e570-49e7-93d6-ce0d393d16c9.mp4
+Next change the theme colors to your liking in the `public/config/theme.css` file.
 
-[alt: video walkthrough of editing env vars]
+```css
+:root {
+  --primary: #ebc908;
+  --primary-text: #1a1a1a;
+  --secondary: #ff1dec;
+  --secondary-text: #ffffff;
+  --accent: #ffffff;
+  --accent-text: #000000;
+}
+```
 
-If setting an environment variable isn't your cup of tea, the defaults can be changed in [`utils/global-data.js`](/utils/global-data.js). You can also remove the variables and hard code blog information where these variables are used in the code base.
+Now you will need to create and change the `public/favicon.ico`, `public/logo192.png`, and
+`public/logo512.png` to your brand images.
 
-- `BLOG_THEME, BLOG_FONT_HEADINGS, & BLOG_FONT_PARAGRAPHS` are used in [`tailwind-preset.js`](tailwind-preset.js)
-- `BLOG_NAME, BLOG_TITLE, BLOG_FOOTER_TEXT` are used in [`pages/index.js`](pages/index.js) & [`pages/posts/[slug].js`](pages/posts/[slug].js) through the `globalData` object.
+Remember to update the title and description the `public/index.html` file
 
-## Adding new posts
+```html
+<title>The Stripes NFT</title>
+<meta name="description" content="Mint your Stripes NFT" />
+```
 
-All posts are stored in `/posts` directory. To make a new post, create a new file with the [`.mdx` extension](https://mdxjs.com/).
+Also remember to update the short_name and name fields in the `public/manifest.json` file
 
-Since the posts are written in `MDX` format you can pass props and components. That means you can use [React components](https://reactjs.org/docs/components-and-props.html) inside your posts to make them more interactive. Learn more about how to do so in the [MDX docs on content](https://mdxjs.com/docs/using-mdx/#components).
+```json
+{
+  "short_name": "TSNFT",
+  "name": "The Stripes NFT"
+}
+```
 
-https://user-images.githubusercontent.com/3611928/152727802-102ec296-41c8-446d-93ed-922d11187073.mp4
+After all the changes you can run.
 
-[alt: video walkthrough of adding a new blog post]
+```sh
+npm run start
+```
+
+Or create the build if you are ready to deploy.
+
+```sh
+npm run build
+```
+
+Now you can host the contents of the build folder on a server.
+
+That's it! you're done.
